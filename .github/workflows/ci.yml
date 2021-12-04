@@ -41,6 +41,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Debugging
+      run: pwd; ls -l; ls -l ./github-actions-dashboard-server/build/libs
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v2
