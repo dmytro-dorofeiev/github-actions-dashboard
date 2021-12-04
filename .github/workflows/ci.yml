@@ -11,13 +11,14 @@ on:
       - master
       - ghtest1
 
+concurrency: 
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    name: Build
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
